@@ -87,7 +87,7 @@ const skillsFam = [
 // ==================== WELCOME MESSAGES ====================
 
 const welcomeMessages = [
-    `I am <strong id="myName" style="font-size:20px">Khusanjon Bobokhojaev</strong>, this is my portfolio website`,
+    `I am <strong id="myName" style="font-size:20px"><a href="https://khusanjon-b.github.io/PortfolioWebsiteV1/">Khusanjon Bobokhojaev</a></strong>, this is my portfolio website`,
     `Type 'help' to begin.`,
     `_________________________________________________`,
     ``
@@ -203,7 +203,9 @@ document.addEventListener("keydown", (event) => {
 
         if (commandHandlers[cmd]) {
             commandHandlers[cmd]();
-        } else {
+        } else if (cmd === ""){
+            
+        }else {
             appendOutput(`Unknown command: ${cmd}`, 1);
             appendOutput(`Type 'help' to get list of commands.`);
         }
@@ -354,6 +356,7 @@ function handleActivities() {
     appendOutput(" - Physics Department Assistant - California Lutheran University\n\n");
     appendOutput(" - Math Center Tutor - California Lutheran University\n\n");
     appendOutput(" - Assistant Center Director - Mathnasium - Thousand Oaks, CA\n\n");
+    appendHTML(" - Click here for my resume --> <a href='https://khusanjon-b.github.io/PortfolioWebsiteV1/resume.html'>RESUME</a>");
 }
 
 function handleResearch() {
@@ -374,7 +377,7 @@ function handleClear() {
 }
 
 function handleVersion() {
-    appendOutput("Terminal Portfolio v1.0 — last updated 11.22.2025");
+    appendOutput("Terminal Portfolio v1.0 — last updated 11.23.2025");
 }
 
 window.addEventListener("resize", () => {
