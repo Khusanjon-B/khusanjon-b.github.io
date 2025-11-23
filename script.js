@@ -331,7 +331,7 @@ Status:          Uzbek Muslim.
     appendHTML(`
         <div class="about-header">
             <pre class="about-text">${aboutText}</pre>
-            <img src="image.jpg" class="profilePic">
+            <img src="images/me.jpg" class="profilePic">
         </div>
     `);
 
