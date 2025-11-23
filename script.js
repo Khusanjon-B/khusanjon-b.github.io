@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameElem = document.getElementById("myName");
     if (nameElem) {
         nameElem.addEventListener("click", () => {
-            window.open("https://khusanjon-b.github.io/khusanjon-bvOLD.github.io/", "_blank");
+            window.open("https://khusanjon-b.github.io/PortfolioWebsiteV1/", "_blank");
         });
     }
 });
