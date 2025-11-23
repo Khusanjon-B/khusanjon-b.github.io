@@ -345,6 +345,7 @@ function handleActivities() {
     appendOutput("\nActivities:\n\n");
     appendOutput(" - Recently presented at Southern California Conferences for Undergraduate Research (SCCUR)\n\n");
     appendOutput(" - Recently participated in SoCal ICPC - working on getting better through practice on CodeForces\n\n");
+    appendHTML(`   - My solutions can be found in my Github: <a href="https://github.com/Khusanjon-B">github.com/Khusanjon-B</a>\n\n`);
     appendOutput(" - Working on Double Link SCARA Arm Robot\n\n");
     appendOutput(" - Physics Club VP\n\n");
     appendOutput(" - Math Club VP\n\n")
@@ -362,8 +363,9 @@ function handleResearch() {
 function handleContact() {
     appendOutput("\nContact:");
     appendOutput("- Phone:    818 921 2163");
-    appendOutput("- Email:    kbobokhojaev@callutheran.edu");
-    appendOutput("- LinkedIn: https://www.linkedin.com/in/khusanjon-bo/\n\n");
+    appendHTML(`- Email:    <a href="mailto:kbobokhojaev@callutheran.edu">kbobokhojaev@callutheran.edu</a>`);
+    appendHTML(`- LinkedIn: <a href="https://www.linkedin.com/in/khusanjon-bo/" target="_blank">linkedin.com/in/khusanjon-bo</a>`);
+
 }
 
 function handleClear() {

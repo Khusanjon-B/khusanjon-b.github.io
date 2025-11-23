@@ -8,6 +8,11 @@
     font-size: 14px;
 }
 
+a {
+    color: inherit;         /* use the surrounding text color */
+    text-decoration: none;  /* remove underline */
+}
+
 html, body {
     height: 100%;
 }
