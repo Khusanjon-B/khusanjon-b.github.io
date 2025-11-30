@@ -19,6 +19,7 @@ const commands = {
     "projects -v":   "see my projects with more details",
     activities: "see what I am up to",
     research:   "see my research",
+    courses:    "see my relevant coursework",
     skills:     "see my skill breakdown",
     contact:    "contact me",
     clear:      "clear terminal",
@@ -33,6 +34,7 @@ const commandHandlers = {
     projects: handleProjects,
     activities: handleActivities,
     research: handleResearch,
+    courses:handleCourses,
     contact: handleContact,
     clear: handleClear,
     version: handleVersion,
@@ -429,17 +431,46 @@ function handleActivities() {
     appendOutput(" - Physics Club VP\n\n");
     appendOutput(" - Math Club VP\n\n")
     appendOutput(" - Society of Physics Students (SPS) Member\n\n")
+    appendOutput(" - Sigma Pi Sigma Honors Society\n\n")
     appendOutput("Jobs:\n\n");
     appendOutput(" - Physics Department Assistant - California Lutheran University\n\n");
     appendOutput(" - Math Center Tutor - California Lutheran University\n\n");
     appendOutput(" - Assistant Center Director - Mathnasium - Thousand Oaks, CA\n\n");
-    appendHTML(" - Click here for my resume --> <a href='https://khusanjon-b.github.io/PortfolioWebsiteV1/resume.html'>RESUME</a>");
+    appendHTML(" - Click here for my resume --> <strong><a href='https://khusanjon-b.github.io/PortfolioWebsiteV1/resume.html'>RESUME</a></strong>");
 }
 
 function handleResearch() {
     appendOutput("\nResearch:");
-    appendOutput(" - I conduct research on supersymmetric top quark partner (stop) searches using CMS Run 2 data, specializing in dilepton final states (ee, μμ, eμ). I migrated legacy FWLite/MiniAOD workflows to NanoAOD + Coffea + Dask, implemented full event-selection pipelines, and performed systematic studies including JEC/MET corrections and b-tagging scale factors. I also developed BDT-based classifiers with ROOT/PyROOT to enhance SUSY signal discrimination and contributed to a displaced-stop study using CMSSW. My work has been presented at the CLU Undergraduate Research Symposium 2024/2025 and SCCUR 2025.\n\n")
+    appendOutput(" - I conduct research on supersymmetric top quark partner (stop) searches using CMS Run 2 data, specializing in dilepton final states (ee, μμ, eμ). I migrated legacy FWLite/MiniAOD workflows to NanoAOD + Coffea + Dask, implemented full event-selection pipelines, and performed systematic studies including JEC/MET corrections and b-tagging scale factors. I also developed BDT-based classifiers with ROOT/PyROOT to enhance SUSY signal discrimination and contributed to a displaced-stop study using CMSSW. My work has been presented at the CLU Undergraduate Research Symposium 2024/2025 and SCCUR 2025.\n\n");
 }
+function handleCourses() {
+    appendOutput("\nRelevant Coursework:\n");
+        appendHTML("<strong>Computer Science & Software Engineering</strong>\n\n");
+        appendHTML(" - Advanced Computer Programming with Python (CSC225) - <em>completed</em>\n\n");
+        appendHTML(" - Object-Oriented Design & Analysis (CSC315) - <em>in progress</em>");
+        appendHTML(" - Competition Problem Solving (CSC435) - <em>in progress</em>\n\n");
+        appendHTML(" - Data Communications & Networks (CSC350) - <em>planned</em>");
+        appendHTML(" - Database Management Systems (CSC410) - <em>planned</em>\n\n");
+    
+    appendHTML("<strong>Physics & Engineering</strong>\n\n");
+        appendHTML(" - Statistical Physics & Thermodynamics (PHYS315) - <em>completed</em>");
+        appendHTML(" - Geometrical and Physical Optics (PHYS425) - <em>completed</em>");
+        appendHTML(" - Applied Electronics (PHYS309) - <em>completed</em>");
+        appendHTML(" - 3D Engineering Design (PHYS2ST) - <em>completed</em>\n\n");
+        appendHTML(" - Modern Physics (PHYS303) - <em>in progress</em>");
+        appendHTML(" - Classical Mechanics (PHYS410) - <em>in progress</em>\n\n");
+        appendHTML(" - Quantum Physics (PHYS430) - <em>planned</em>");
+        appendHTML(" - Advanced Experimental Physics (PHYS340) - <em>planned</em>");
+        appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>planned</em>\n\n");
+
+    appendHTML("<strong>Math & Data Science</strong>\n");
+        appendHTML(" - Discrete Mathematics (MATH241) - <em>completed</em>");
+        appendHTML(" - Calculus I, II, III (MATH251, MATH252, M25C) - <em>completed</em>");
+        appendHTML(" - Differential Equations (MATH265) - <em>completed</em>");
+        appendHTML(" - Machine Learning (DATA440) - <em>completed</em>");
+        appendHTML(" - 3D Engineering Design (PHYS2ST) - <em>completed</em>\n\n");
+}
+
 function handleContact() {
     appendOutput("\nContact:");
     appendOutput("- Phone:    818 921 2163");
@@ -454,7 +485,9 @@ function handleClear() {
 }
 
 function handleVersion() {
-    appendOutput("Terminal Portfolio v1.0 — last updated 11.23.2025");
+    appendHTML("<strong>Current == Terminal Portfolio v1.2 — last updated 11.23.2025</strong>");
+    appendOutput("Terminal Portfolio v1.1 — last updated 11.23.2025");
+    appendOutput("Terminal Portfolio v1.0 — last updated 11.22.2025");
 }
 
 window.addEventListener("resize", () => {
