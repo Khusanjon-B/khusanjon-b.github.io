@@ -468,7 +468,6 @@ function handleCourses() {
         appendHTML(" - Calculus I, II, III (MATH251, MATH252, M25C) - <em>completed</em>");
         appendHTML(" - Differential Equations (MATH265) - <em>completed</em>");
         appendHTML(" - Machine Learning (DATA440) - <em>completed</em>");
-        appendHTML(" - 3D Engineering Design (PHYS2ST) - <em>completed</em>\n\n");
 }
 
 function handleContact() {
