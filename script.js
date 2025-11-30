@@ -16,6 +16,7 @@ const commands = {
     help:       "learn what you can do",
     about:      "learn about me",
     projects:   "see my projects",
+    "projects -v":   "see my projects with more details",
     activities: "see what I am up to",
     research:   "see my research",
     skills:     "see my skill breakdown",
@@ -42,7 +43,8 @@ const commandHandlers = {
     "cat activities.txt": handleActivities,
     "cat research.txt": handleResearch,
     "cat contact.txt": handleContact,
-    "cat version.txt": handleVersion
+    "cat version.txt": handleVersion,
+    "projects -v": handleProjectsVerbose
 };
 
 
@@ -340,7 +342,82 @@ Status:          Uzbek Muslim.
 }
 
 function handleProjects() {
-    appendOutput("Projects: (Coming Soon)");
+    appendHTML("<strong>Projects:</strong>\n\n");
+    appendHTML(" - <strong>Personal Website V2 and V1</strong> - <em>Nov 2025</em>\n\n");
+
+    appendHTML(" - <strong>Newtonian Gravitation Simulation</strong> - <em>Aug 2025</em>\n\n");
+
+    appendHTML(" - <strong>SCARA Dual Linkage Arm (Not Complete)</strong> - <em>Jul-Aug 2025</em> \n\n");
+
+    appendHTML(" - <strong>Blynk IoT Remote Garage Door Opener</strong> - <em>Jul 2025</em>\n\n");
+
+    appendHTML(" - <strong>MNIST Handwritten Digit Recognition</strong> - <em>Jul 2025</em>\n\n");
+
+    appendHTML(" - <strong>OLED Sensor Display System</strong> - <em>Jun 2025</em>\n\n");
+
+    appendHTML(" - <strong>Dual-Mode Distance Measuring Device</strong> - <em>Dec 2024</em>\n\n");
+
+    appendHTML(" - <strong>Analog Musical Keyboard (Electronic Piano)</strong> - <em>Nov-Dec 2024</em>\n\n");
+
+    appendHTML(" - <strong>Terms of Service Chrome Extension - Startup Weekend Project</strong> - <em>Oct 2024</em>\n\n");
+
+    appendOutput(" - For more details do 'projects -v'")
+
+}
+
+function handleProjectsVerbose() {
+    appendHTML("<strong>Projects:</strong>\n\n");
+    appendHTML(" - <strong>Personal Website V2 and V1</strong> - <em>Nov 2025</em>\n\n");
+        
+        appendHTML("<li style='margin-left: 5%;'>Designed and developed a personal website using HTML, CSS, and JavaScript to showcase academic projects, research, and technical skills</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Created responsive and user-friendly pages, highlighting project descriptions, images, and links</li>\n")
+
+    appendHTML(" - <strong>Newtonian Gravitation Simulation</strong> - <em>Aug 2025</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Developed an interactive simulation of Newtonian gravitation using C++ and Raylib, modeling the motion of celestial bodies under mutual gravitational forces</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Implemented numerical integration techniques to update positions and velocities of bodies in real time</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Enabled users to visualize orbital dynamics and experiment with initial conditions to explore gravitational interactions</li>\n")
+
+    appendHTML(" - <strong>SCARA Dual Linkage Arm (Not Complete)</strong> - <em>Jul-Aug 2025</em> \n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>-- IN PROGRESS - CONTACT ME FOR MORE DETAILS--</li>\n")
+
+    appendHTML(" - <strong>Blynk IoT Remote Garage Door Opener</strong> - <em>Jul 2025</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Designed and implemented a remote-controlled garage door system using ESP32 and Blynk IoT, enabling real-time control and status monitoring via smartphone</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Programmed microcontroller to interface with garage door button and sensors, ensuring reliable and secure operation</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Developed a user-friendly system with integrated feedback for enhanced safety and usability</li>\n")
+
+    appendHTML(" - <strong>MNIST Handwritten Digit Recognition</strong> - <em>Jul 2025</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Built a Convolutional Neural Network (CNN) using PyTorch to classify handwritten digits from the MNIST dataset with high accuracy</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Deployed the trained model into a Python Pygame interface, enabling users to draw digits and see real-time predictions</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Added functionality to allow user-generated training data, allowing the model to learn from new handwritten digits</li>\n")
+
+    appendHTML(" - <strong>OLED Sensor Display System</strong> - <em>Jun 2025</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Developed a real-time environmental and volume monitoring system using Arduino, SSD1306 OLED display, DHT11 sensor, and potentiometer</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Programmed the system to display date, time, temperature, humidity, and volume level in a compact, user-friendly interface</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Designed and iterated both hardware layout and software logic to optimize responsiveness and usability</li>\n")
+
+    appendHTML(" - <strong>Dual-Mode Distance Measuring Device</strong> - <em>Dec 2024</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Built a distance measuring system using Arduino, an ultrasonic sensor, and a VL53L0X time-of-flight laser sensor, with readings displayed on an LCD screene</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Implemented switchable modes to toggle between the two sensors for flexible distance measurement</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Designed both hardware setup and software logic to ensure accurate, real-time measurements</li>\n")
+
+    appendHTML(" - <strong>Analog Musical Keyboard (Electronic Piano)</strong> - <em>Nov-Dec 2024</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Designed and built a 5-key, 3-voice polyphonic analog keyboard using ICs, MOSFETs, logic gates, 555 timers, LF411 amplifiers, resistors, and capacitors</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Developed a logic system to detect multiple key presses and route signals to three oscillators for polyphonic sound output</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Simulated and tested the circuit using LTspice before hardware implementation, ensuring accurate tone generation and correct logic operation</li>\n")
+
+    appendHTML(" - <strong>Terms of Service Chrome Extension - Startup Weekend Project</strong> - <em>Oct 2024</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Designed and implemented a Chrome extension that scans Terms of Service (ToS) documents and automatically flags potentially concerning or uncommon clauses for users</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Collaborated with a multidisciplinary team to integrate NLP-based keyword detection and highlight terms related to data usage, third-party sharing, and arbitration</li>\n")
+        appendHTML("<li style='margin-left: 5%;'>Led the front-end integration and user interface design to display flagged text directly within the browser</li>\n")
+
 }
 
 function handleActivities() {
