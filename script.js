@@ -340,6 +340,7 @@ Status:          Uzbek Muslim.
             <img src="images/me.jpg" class="profilePic">
         </div>
     `);
+    appendHTML("<iframe src='https://tryhackme.com/api/v2/badges/public-profile?userPublicId=6498859' style='border:none; width: 100%'></iframe>")
 
 }
 
