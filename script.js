@@ -425,6 +425,7 @@ function handleProjectsVerbose() {
 
 function handleActivities() {
     appendOutput("\nActivities:\n\n");
+    appendOutput(" - Currently working through TryHackMe rooms from interest in cyber security\n\n");
     appendOutput(" - Recently presented at Southern California Conferences for Undergraduate Research (SCCUR)\n\n");
     appendOutput(" - Recently participated in SoCal ICPC - working on getting better through practice on CodeForces\n\n");
     appendHTML(`   - My solutions can be found in my Github: <a href="https://github.com/Khusanjon-B">github.com/Khusanjon-B</a>\n\n`);
