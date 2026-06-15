@@ -451,8 +451,8 @@ function handleCourses() {
         appendHTML(" - Advanced Computer Programming with Python (CSC225) - <em>completed</em>\n\n");
         appendHTML(" - Object-Oriented Design & Analysis (CSC315) - <em>completed</em>");
         appendHTML(" - Competition Problem Solving (CSC435) - <em>completed</em>\n\n");
-        appendHTML(" - Data Communications & Networks (CSC350) - <em>in progress</em>");
-        appendHTML(" - Database Management Systems (CSC410) - <em>in progress</em>\n\n");
+        appendHTML(" - Data Communications & Networks (CSC350) - <em>completed</em>");
+        appendHTML(" - Database Management Systems (CSC410) - <em>completed</em>\n\n");
     
     appendHTML("<strong>Physics & Engineering</strong>\n\n");
         appendHTML(" - Statistical Physics & Thermodynamics (PHYS315) - <em>completed</em>");
@@ -461,9 +461,9 @@ function handleCourses() {
         appendHTML(" - 3D Engineering Design (PHYS2ST) - <em>completed</em>\n\n");
         appendHTML(" - Modern Physics (PHYS303) - <em>completed</em>");
         appendHTML(" - Classical Mechanics (PHYS410) - <em>completed</em>\n\n");
-        appendHTML(" - Quantum Physics (PHYS430) - <em>in progress</em>");
-        appendHTML(" - Advanced Experimental Physics (PHYS340) - <em>in progress</em>");
-        appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>in progress</em>\n\n");
+        appendHTML(" - Quantum Physics (PHYS430) - <em>completed</em>");
+        appendHTML(" - Advanced Experimental Physics (PHYS340) - <em>completed</em>");
+        appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>completed</em>\n\n");
 
     appendHTML("<strong>Math & Data Science</strong>\n");
         appendHTML(" - Discrete Mathematics (MATH241) - <em>completed</em>");
