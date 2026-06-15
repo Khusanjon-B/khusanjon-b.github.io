@@ -438,7 +438,7 @@ function handleActivities() {
     appendOutput(" - Physics Department Assistant - California Lutheran University\n\n");
     appendOutput(" - Math Center Tutor - California Lutheran University\n\n");
     appendOutput(" - Assistant Center Director - Mathnasium - Thousand Oaks, CA\n\n");
-    appendHTML(" - Click here for my resume --> <strong><a href='https://khusanjon-b.github.io/PortfolioWebsiteV1/resume.html'>RESUME</a></strong>");
+    // appendHTML(" - Click here for my resume --> <strong><a href='https://khusanjon-b.github.io/PortfolioWebsiteV1/resume.html'>RESUME</a></strong>");
 }
 
 function handleResearch() {
