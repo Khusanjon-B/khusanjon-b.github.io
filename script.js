@@ -85,13 +85,15 @@ const skillsProf = [
 const skillsInter = [
     "Bash scripting",
     "PlatformIO",
+    "Raylib",
     "CMake/MinGW toolchains",
     "ROOT & NanoAOD analysis",
     "Inverse kinematics",
     "Circuit design & soldering",
     "Data structures and algorithms",
     "Flask web apps (Socket.IO)",
-    "Offensive security (Nmap, Metasploit, aircrack-ng)"
+    "Offensive security (Nmap, Metasploit, aircrack-ng)",
+    "Speaker-embedding models (SpeechBrain ECAPA-TDNN)"
 ];
 
 const skillsFam = [
@@ -107,7 +109,7 @@ const skillsFam = [
 // ==================== WELCOME MESSAGES ====================
 
 const welcomeMessages = [
-    `I am <strong id="myName" style="font-size:20px"><a href="https://khusanjon-b.github.io/PortfolioWebsiteV1/">Khusanjon Bobokhojaev</a></strong>, this is my portfolio website`,
+    `I am <strong id="myName" style="font-size:20px"><a href="https://www.linkedin.com/in/khusanjon-bo/">Khusanjon Bobokhojaev</a></strong>, this is my portfolio website`,
     `Type 'help' to begin.`,
     `_________________________________________________`,
     ``
@@ -133,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameElem = document.getElementById("myName");
     if (nameElem) {
         nameElem.addEventListener("click", () => {
-            window.open("https://khusanjon-b.github.io/PortfolioWebsiteV1/", "_blank");
+            window.open("https://www.linkedin.com/in/khusanjon-bo/", "_blank");
         });
     }
 });
@@ -363,6 +365,10 @@ Status:          Uzbek Muslim.
 function handleProjects() {
     appendHTML("<strong>Projects:</strong>\n\n");
 
+    appendHTML(" - <strong>Physics Simulation Collection (Raspberry Pi 5 + raylib)</strong> - <em>Jul 2026</em>\n\n");
+
+    appendHTML(" - <strong>Quran Reciter Voice Match</strong> - <em>Jul 2026</em>\n\n");
+
     appendHTML(" - <strong>Real-Time Chat Application</strong> - <em>April 2026</em>\n\n");
 
     appendHTML(" - <strong>Self-Hosted Cloud Storage (Nextcloud)</strong> - <em>April 2026</em>\n\n");
@@ -403,6 +409,20 @@ function handleProjects() {
 
 function handleProjectsVerbose() {
     appendHTML("<strong>Projects:</strong>\n\n");
+
+    appendHTML(" - <strong>Physics Simulation Collection (Raspberry Pi 5 + raylib)</strong> - <em>Jul 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Built three C++/raylib physics simulations on a Raspberry Pi 5 with touchscreen: a double pendulum (progressing from an uncoupled approximation through Euler-Cromer to RK4, verified by a live energy-drift readout), a cellular-automaton falling sand simulation, and an interactive 3D Lorenz attractor visualizer</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Reused RK4 integration across the coupled-ODE systems (pendulum, Lorenz) and built reusable UI sliders — separating knob position from mapped parameter value — for real-time control</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>The Lorenz visualization lets users drag the ρ parameter across its bifurcation point (~24.74) and watch the attractor collapse into a fixed point and bloom back into chaos live</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Set up the build toolchain from source (CMake, GLES2 backend for the Pi's GPU) and a VS Code Remote-SSH workflow; code: <a href='https://github.com/Khusanjon-B/physics-simulations' target='_blank'>github.com/Khusanjon-B/physics-simulations</a></li>\n");
+
+    appendHTML(" - <strong>Quran Reciter Voice Match</strong> - <em>Jul 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Built a CLI tool that matches a Quran recitation recording to the well-known reciter (Qari) it sounds closest to, using a pretrained speaker-embedding model (SpeechBrain ECAPA-TDNN) rather than training a classifier from scratch</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Built a reference database of well-known reciters' clips embedded individually (not averaged per reciter) and ranked query clips by cosine similarity, so a query reciting one surah can still be matched against reference clips of a different surah</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>With no formal ground truth available, validated the system against real recordings of people imitating famous reciters, reaching 20% top-1 / 44.2% top-3 accuracy on adult-to-adult pairs vs. a 3.6% / 10.7% random baseline</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Built an evaluation/tuning harness to sweep aggregation strategies (mean/median, top-k) against the validation set; code: <a href='https://github.com/Khusanjon-B/quran-reciter-match' target='_blank'>github.com/Khusanjon-B/quran-reciter-match</a></li>\n");
 
     appendHTML(" - <strong>Real-Time Chat Application</strong> - <em>April 2026</em>\n\n");
 
@@ -530,6 +550,11 @@ function handleCourses() {
         appendHTML(" - Competition Problem Solving (CSC435) - <em>completed</em>\n\n");
         appendHTML(" - Data Communications & Networks (CSC350) - <em>completed</em>");
         appendHTML(" - Database Management Systems (CSC410) - <em>completed</em>\n\n");
+        appendHTML(" - Algorithms (CSC310) - <em>planned</em>");
+        appendHTML(" - Computer Organization & Architecture (CSC321) - <em>planned</em>\n\n");
+        appendHTML(" - Software Engineering (CSC335) - <em>planned</em>");
+        appendHTML(" - Operating Systems (CSC340) - <em>planned</em>\n\n");
+        appendHTML(" - Capstone (CSC499) - <em>planned</em>\n\n");
     
     appendHTML("<strong>Physics & Engineering</strong>\n\n");
         appendHTML(" - Statistical Physics & Thermodynamics (PHYS415) - <em>completed</em>");
@@ -541,12 +566,16 @@ function handleCourses() {
         appendHTML(" - Quantum Physics (PHYS430) - <em>completed</em>");
         appendHTML(" - Advanced Experimental Physics (PHYS340) - <em>completed</em>");
         appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>completed</em>\n\n");
+        appendHTML(" - Capstone Research Project (PHYS494) - <em>planned</em>");
+        appendHTML(" - Capstone Senior Thesis (PHYS475) - <em>planned</em>\n\n");
 
     appendHTML("<strong>Math & Data Science</strong>\n");
         appendHTML(" - Discrete Mathematics (MATH241) - <em>completed</em>");
         appendHTML(" - Calculus I, II, III (MATH251, MATH252, M25C) - <em>completed</em>");
         appendHTML(" - Differential Equations (MATH265) - <em>completed</em>");
         appendHTML(" - Machine Learning (DATA440) - <em>completed</em>");
+        appendHTML(" - Graph Theory & Combinatorics (MATH341) - <em>planned</em>");
+        appendHTML(" - Linear Algebra (MATH343) - <em>planned</em>");
 }
 
 function handleLanguages() {
@@ -568,6 +597,8 @@ function handleContact() {
     appendOutput("\nContact:");
     appendHTML(`- Email:    <a href="mailto:kbobokhojaev@callutheran.edu">kbobokhojaev@callutheran.edu</a>`);
     appendHTML(`- LinkedIn: <a href="https://www.linkedin.com/in/khusanjon-bo/" target="_blank">linkedin.com/in/khusanjon-bo</a>`);
+    appendHTML(`- GitHub:   <a href="https://github.com/Khusanjon-B" target="_blank">github.com/Khusanjon-B</a>`);
+    appendHTML(`- YouTube:  <a href="https://www.youtube.com/@khusanjon-b" target="_blank">youtube.com/@khusanjon-b</a>`);
 
 }
 
@@ -577,7 +608,8 @@ function handleClear() {
 }
 
 function handleVersion() {
-    appendHTML("<strong>Current == Terminal Portfolio v1.3 — last updated 06.15.2026</strong>");
+    appendHTML("<strong>Current == Terminal Portfolio v1.4 — last updated 07.15.2026</strong>");
+    appendOutput("Terminal Portfolio v1.3 — last updated 06.15.2026");
     appendOutput("Terminal Portfolio v1.2 — last updated 11.23.2025");
     appendOutput("Terminal Portfolio v1.1 — last updated 11.23.2025");
     appendOutput("Terminal Portfolio v1.0 — last updated 11.22.2025");
