@@ -566,6 +566,7 @@ function handleCourses() {
         appendHTML(" - Quantum Physics (PHYS430) - <em>completed</em>");
         appendHTML(" - Advanced Experimental Physics (PHYS340) - <em>completed</em>");
         appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>completed</em>\n\n");
+        appendHTML(" - Particle Physics Independent Study (PHYS-ST) - <em>completed</em>\n\n");
         appendHTML(" - Capstone Research Project (PHYS494) - <em>planned</em>");
         appendHTML(" - Capstone Senior Thesis (PHYS475) - <em>planned</em>\n\n");
 
