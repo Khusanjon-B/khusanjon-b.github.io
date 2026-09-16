@@ -18,7 +18,8 @@ const commands = {
     about:      "learn about me",
     projects:   "see my projects",
     "projects -v":   "see my projects with more details",
-    activities: "see what I am up to",
+    activities: "see what I am up to right now",
+    experience: "see my formal work experience",
     research:   "see my research",
     courses:    "see my relevant coursework",
     skills:     "see my skill breakdown",
@@ -36,6 +37,7 @@ const commandHandlers = {
     about: handleAbout,
     projects: handleProjects,
     activities: handleActivities,
+    experience: handleExperience,
     research: handleResearch,
     courses: handleCourses,
     skills: handleSkills,
@@ -48,6 +50,7 @@ const commandHandlers = {
     "cat about.txt": handleAbout,
     "cat projects.txt": handleProjects,
     "cat activities.txt": handleActivities,
+    "cat experience.txt": handleExperience,
     "cat research.txt": handleResearch,
     "cat courses.txt": handleCourses,
     "cat skills.txt": handleSkills,
@@ -79,7 +82,8 @@ const skillsProf = [
     "Machine learning workflows",
     "Model deployment (GUI + PyTorch)",
     "Stepper/servo motor control",
-    "Scientific data analysis & curve fitting"
+    "Scientific data analysis & curve fitting",
+    "Igor Pro (power-user analysis/scripting + C++ integration development)"
 ];
 
 const skillsInter = [
@@ -93,7 +97,9 @@ const skillsInter = [
     "Data structures and algorithms",
     "Flask web apps (Socket.IO)",
     "Offensive security (Nmap, Metasploit, aircrack-ng)",
-    "Speaker-embedding models (SpeechBrain ECAPA-TDNN)"
+    "Speaker-embedding models (SpeechBrain ECAPA-TDNN)",
+    "Qt Creator / Visual Studio",
+    "AWS (EC2, S3, RDS, DynamoDB)"
 ];
 
 const skillsFam = [
@@ -109,8 +115,8 @@ const skillsFam = [
 // ==================== WELCOME MESSAGES ====================
 
 const welcomeMessages = [
-    `I am <strong id="myName" style="font-size:20px"><a href="https://www.linkedin.com/in/khusanjon-bo/">Khusanjon Bobokhojaev</a></strong>, this is my portfolio website`,
-    `Type 'help' to begin.`,
+    `I am <strong id="myName" style="font-size:20px"><a href="https://www.linkedin.com/in/khusanjon-bo/" target="_blank" rel="noopener noreferrer">Khusanjon Bobokhojaev</a></strong>, this is my portfolio website`,
+    `Type 'help' to begin, or jump straight to 'projects -v' for full project details.`,
     `_________________________________________________`,
     ``
 ];
@@ -128,17 +134,6 @@ function loadWelcome() {
 loadWelcome();
 checkScreenSizeWarning();
 
-
-// ==================== CLICKABLE NAME ====================
-
-document.addEventListener("DOMContentLoaded", () => {
-    const nameElem = document.getElementById("myName");
-    if (nameElem) {
-        nameElem.addEventListener("click", () => {
-            window.open("https://www.linkedin.com/in/khusanjon-bo/", "_blank");
-        });
-    }
-});
 
 function checkScreenSizeWarning() {
     const width = window.innerWidth;
@@ -320,7 +315,7 @@ function handleHelp() {
 }
 
 function handlels() {
-    appendOutput("about.txt projects.txt activities.txt research.txt courses.txt", 2);
+    appendOutput("about.txt projects.txt activities.txt experience.txt research.txt courses.txt", 2);
     appendOutput("skills.txt languages.txt resume.txt contact.txt version.txt", 2);
 }
 
@@ -343,13 +338,13 @@ Name:            Khusanjon Bobokhojaev
 
 School:          California Lutheran University
 
-Year:            Rising Senior (Class of 2027)
+Year:            Senior (Class of 2027)
 
 Field:           Double Major in Computer Science & Physics (Math Minor)
 
-Who?:            Developer, researcher, engineer with a passion for building things that blend hardware, code, and curiosity.
+Who?:            Uzbek Muslim developer, researcher, and engineer with a passion for building things that blend hardware, code, and curiosity. Currently a Software Development Intern at WaveMetrics, building the C++ implementation of Python support inside Igor Pro 10, on top of two years of physics research spanning CERN/CMS particle physics and organic photovoltaics device physics at Washington State University.
 
-Status:          Uzbek Muslim.
+Interests:       ML and scientific computing applied to real physics/engineering problems, hands-on embedded systems and hardware (schematic to firmware to enclosure), robotics and autonomous systems, and building things that work end-to-end and can actually be demonstrated.
 `;
 
     appendHTML(`
@@ -358,12 +353,13 @@ Status:          Uzbek Muslim.
             <img src="images/me.jpg" class="profilePic">
         </div>
     `);
-    appendHTML("<iframe src='https://tryhackme.com/api/v2/badges/public-profile?userPublicId=6498859' style='border:none; width: 100%'></iframe>")
 
 }
 
 function handleProjects() {
     appendHTML("<strong>Projects:</strong>\n\n");
+
+    appendHTML(" - <strong>N-DOF Robotic Arm (Physics & CS Capstone, in progress)</strong> - <em>Fall 2026-Spring 2027</em>\n\n");
 
     appendHTML(" - <strong>Physics Simulation Collection (Raspberry Pi 5 + raylib)</strong> - <em>Jul 2026</em>\n\n");
 
@@ -373,13 +369,7 @@ function handleProjects() {
 
     appendHTML(" - <strong>Self-Hosted Cloud Storage (Nextcloud)</strong> - <em>April 2026</em>\n\n");
 
-    appendHTML(" - <strong>WPA2 Handshake Capture & Cracking</strong> - <em>April 2026</em>\n\n");
-
     appendHTML(" - <strong>CommandoPOS Database System</strong> - <em>Spring 2026</em>\n\n");
-
-    appendHTML(" - <strong>SQL Injection Lab (DVWA)</strong> - <em>Spring 2026</em>\n\n");
-
-    appendHTML(" - <strong>Network Configuration & Simulation (Packet Tracer)</strong> - <em>Spring 2026</em>\n\n");
 
     appendHTML(" - <strong>Computational Physics in MATLAB</strong> - <em>Spring 2026</em>\n\n");
 
@@ -388,8 +378,6 @@ function handleProjects() {
     appendHTML(" - <strong>Personal Website V2 and V1</strong> - <em>Nov 2025</em>\n\n");
 
     appendHTML(" - <strong>Newtonian Gravitation Simulation</strong> - <em>Aug 2025</em>\n\n");
-
-    appendHTML(" - <strong>SCARA Dual Linkage Arm (Not Complete)</strong> - <em>Jul-Aug 2025</em> \n\n");
 
     appendHTML(" - <strong>Blynk IoT Remote Garage Door Opener</strong> - <em>Jul 2025</em>\n\n");
 
@@ -401,6 +389,12 @@ function handleProjects() {
 
     appendHTML(" - <strong>Analog Musical Keyboard (Electronic Piano)</strong> - <em>Nov-Dec 2024</em>\n\n");
 
+    appendHTML(" - <strong>WPA2 Handshake Capture & Cracking</strong> - <em>April 2026</em>\n\n");
+
+    appendHTML(" - <strong>SQL Injection Lab (DVWA)</strong> - <em>Spring 2026</em>\n\n");
+
+    appendHTML(" - <strong>Network Configuration & Simulation (Packet Tracer)</strong> - <em>Spring 2026</em>\n\n");
+
     appendHTML(" - <strong>Terms of Service Chrome Extension - Startup Weekend Project</strong> - <em>Oct 2024</em>\n\n");
 
     appendOutput(" - For more details do 'projects -v'")
@@ -410,12 +404,18 @@ function handleProjects() {
 function handleProjectsVerbose() {
     appendHTML("<strong>Projects:</strong>\n\n");
 
+    appendHTML(" - <strong>N-DOF Robotic Arm (Physics & CS Capstone, in progress)</strong> - <em>Fall 2026-Spring 2027</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Deriving the arm's mechanism and motion planning via three independent methods: Lagrangian mechanics, linear-algebra/Jacobian-based kinematics, and machine learning</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Designing and building the physical robot using NEMA 17 stepper motors, encoders, and PID control loops</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Physics capstone (PHYS494 Fall 2026 / PHYS475 Spring 2027), likely reused for CS capstone (CSC499 Spring 2027)</li>\n");
+
     appendHTML(" - <strong>Physics Simulation Collection (Raspberry Pi 5 + raylib)</strong> - <em>Jul 2026</em>\n\n");
 
         appendHTML("<li style='margin-left: 5%;'>Built three C++/raylib physics simulations on a Raspberry Pi 5 with touchscreen: a double pendulum (progressing from an uncoupled approximation through Euler-Cromer to RK4, verified by a live energy-drift readout), a cellular-automaton falling sand simulation, and an interactive 3D Lorenz attractor visualizer</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Reused RK4 integration across the coupled-ODE systems (pendulum, Lorenz) and built reusable UI sliders — separating knob position from mapped parameter value — for real-time control</li>\n");
         appendHTML("<li style='margin-left: 5%;'>The Lorenz visualization lets users drag the ρ parameter across its bifurcation point (~24.74) and watch the attractor collapse into a fixed point and bloom back into chaos live</li>\n");
-        appendHTML("<li style='margin-left: 5%;'>Set up the build toolchain from source (CMake, GLES2 backend for the Pi's GPU) and a VS Code Remote-SSH workflow; code: <a href='https://github.com/Khusanjon-B/physics-simulations' target='_blank'>github.com/Khusanjon-B/physics-simulations</a></li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Set up the build toolchain from source (CMake, GLES2 backend for the Pi's GPU) and a VS Code Remote-SSH workflow; code: <a href='https://github.com/Khusanjon-B/physics-simulations' target='_blank'>github.com/Khusanjon-B/physics-simulations</a>, video demos: <a href='https://www.youtube.com/@khusanjon-b' target='_blank'>youtube.com/@khusanjon-b</a></li>\n");
 
     appendHTML(" - <strong>Quran Reciter Voice Match</strong> - <em>Jul 2026</em>\n\n");
 
@@ -433,24 +433,10 @@ function handleProjectsVerbose() {
 
         appendHTML("<li style='margin-left: 5%;'>Deployed and configured a self-hosted Nextcloud server on Linux for personal file sync and remote access</li>\n");
 
-    appendHTML(" - <strong>WPA2 Handshake Capture & Cracking</strong> - <em>April 2026</em>\n\n");
-
-        appendHTML("<li style='margin-left: 5%;'>Captured a WPA2 handshake in a controlled lab using Kali Linux and a monitor-mode adapter</li>\n");
-        appendHTML("<li style='margin-left: 5%;'>Recovered the passphrase via offline dictionary attack with aircrack-ng / Hashcat</li>\n");
-
     appendHTML(" - <strong>CommandoPOS Database System</strong> - <em>Spring 2026</em>\n\n");
 
         appendHTML("<li style='margin-left: 5%;'>Designed a point-of-sale database in MySQL with stored procedures, triggers, views, and an OLAP star schema for analytical queries</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Reimplemented the same system in DynamoDB (NoSQL) to compare relational and non-relational data modeling</li>\n");
-
-    appendHTML(" - <strong>SQL Injection Lab (DVWA)</strong> - <em>Spring 2026</em>\n\n");
-
-        appendHTML("<li style='margin-left: 5%;'>Set up the Damn Vulnerable Web Application (DVWA) and performed SQL injection attacks across difficulty levels</li>\n");
-        appendHTML("<li style='margin-left: 5%;'>Studied input-validation flaws and database-layer defenses such as parameterized queries and sanitization</li>\n");
-
-    appendHTML(" - <strong>Network Configuration & Simulation (Packet Tracer)</strong> - <em>Spring 2026</em>\n\n");
-
-        appendHTML("<li style='margin-left: 5%;'>Designed and configured network topologies — routing, switching, and addressing — in Cisco Packet Tracer for Data Communications & Networks</li>\n");
 
     appendHTML(" - <strong>Computational Physics in MATLAB</strong> - <em>Spring 2026</em>\n\n");
 
@@ -470,10 +456,6 @@ function handleProjectsVerbose() {
         appendHTML("<li style='margin-left: 5%;'>Developed an interactive simulation of Newtonian gravitation using C++ and Raylib, modeling the motion of celestial bodies under mutual gravitational forces</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Implemented numerical integration techniques to update positions and velocities of bodies in real time</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Enabled users to visualize orbital dynamics and experiment with initial conditions to explore gravitational interactions</li>\n")
-
-    appendHTML(" - <strong>SCARA Dual Linkage Arm (Not Complete)</strong> - <em>Jul-Aug 2025</em> \n\n");
-
-        appendHTML("<li style='margin-left: 5%;'>-- IN PROGRESS - CONTACT ME FOR MORE DETAILS--</li>\n")
 
     appendHTML(" - <strong>Blynk IoT Remote Garage Door Opener</strong> - <em>Jul 2025</em>\n\n");
 
@@ -505,6 +487,20 @@ function handleProjectsVerbose() {
         appendHTML("<li style='margin-left: 5%;'>Developed a logic system to detect multiple key presses and route signals to three oscillators for polyphonic sound output</li>\n")
         appendHTML("<li style='margin-left: 5%;'>Simulated and tested the circuit using LTspice before hardware implementation, ensuring accurate tone generation and correct logic operation</li>\n")
 
+    appendHTML(" - <strong>WPA2 Handshake Capture & Cracking</strong> - <em>April 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Captured a WPA2 handshake in a controlled lab using Kali Linux and a monitor-mode adapter</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Recovered the passphrase via offline dictionary attack with aircrack-ng / Hashcat</li>\n");
+
+    appendHTML(" - <strong>SQL Injection Lab (DVWA)</strong> - <em>Spring 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Set up the Damn Vulnerable Web Application (DVWA) and performed SQL injection attacks across difficulty levels</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Studied input-validation flaws and database-layer defenses such as parameterized queries and sanitization</li>\n");
+
+    appendHTML(" - <strong>Network Configuration & Simulation (Packet Tracer)</strong> - <em>Spring 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Designed and configured network topologies — routing, switching, and addressing — in Cisco Packet Tracer for Data Communications & Networks</li>\n");
+
     appendHTML(" - <strong>Terms of Service Chrome Extension - Startup Weekend Project</strong> - <em>Oct 2024</em>\n\n");
 
         appendHTML("<li style='margin-left: 5%;'>Designed and implemented a Chrome extension that scans Terms of Service (ToS) documents and automatically flags potentially concerning or uncommon clauses for users</li>\n")
@@ -514,29 +510,44 @@ function handleProjectsVerbose() {
 }
 
 function handleActivities() {
-    appendOutput("\nActivities:\n\n");
-    appendOutput(" - Currently working through TryHackMe rooms from interest in cyber security\n\n");
+    appendOutput("\nWhat I'm up to right now:\n\n");
+    appendOutput(" - Senior year at CLU - deep in Algorithms, Software Engineering, and Operating Systems this semester\n\n");
+    appendOutput(" - Software Development Intern at WaveMetrics, building Python support into Igor Pro 10 in C++\n\n");
+    appendOutput(" - Building an N-DOF robotic arm as my Physics & CS capstone - deriving the mechanism via Lagrangian mechanics, Jacobian kinematics, and machine learning\n\n");
+    appendOutput(" - Just wrapped an NSF REU at Washington State University this summer, researching organic photovoltaics\n\n");
+    appendOutput(" - Physics Club President and CS Club Co-President for 2026-27\n\n");
     appendOutput(" - Recently presented at Southern California Conferences for Undergraduate Research (SCCUR)\n\n");
-    appendOutput(" - Recently participated in SoCal ICPC - working on getting better through practice on CodeForces\n\n");
-    appendHTML(`   - My solutions can be found in my Github: <a href="https://github.com/Khusanjon-B">github.com/Khusanjon-B</a>\n\n`);
-    appendOutput(" - Working on Double Link SCARA Arm Robot\n\n");
-    appendOutput(" - Physics Club President (incoming, 2026–27)\n\n");
-    appendOutput(" - CS Club Co-President (incoming, 2026–27)\n\n")
-    appendOutput(" - Society of Physics Students (SPS) Member\n\n")
-    appendOutput(" - Sigma Pi Sigma Honors Society\n\n")
-    appendOutput("Jobs:\n\n");
-    appendOutput(" - Undergraduate Research Fellow (REU) - Washington State University\n\n");
-    appendOutput(" - Physics Department Assistant - California Lutheran University\n\n");
-    appendOutput(" - Math Center Tutor - California Lutheran University\n\n");
-    appendOutput(" - Assistant Center Director - Mathnasium - Thousand Oaks, CA\n\n");
-    appendHTML(" - For my full CV, type 'resume' or click here --> <strong><a href='images/Bobokhojaev_Master_CV_1.pdf' target='_blank'>RESUME</a></strong>");
+    appendOutput(" - Participating in SoCal ICPC - working on getting better through practice on Codeforces\n\n");
+    appendHTML(`   - My solutions can be found on my Github: <a href="https://github.com/Khusanjon-B">github.com/Khusanjon-B</a>\n\n`);
+    appendOutput(" - Society of Physics Students (SPS) Member · Sigma Pi Sigma Honors Society\n\n");
+    appendHTML(" - For my formal work history, type 'experience'. For research details, type 'research'.");
+}
+
+function handleExperience() {
+    appendOutput("\nWork Experience:\n");
+
+    appendHTML("<strong>Software Development Intern — WaveMetrics</strong> (working under Sutter Instruments) — <em>Aug 2026 – Present</em>");
+    appendOutput(" - Implementing Python support inside Igor Pro 10, WaveMetrics' scientific data analysis platform, in C++ - building the interpreter/integration layer itself, not writing Python scripts\n");
+    appendOutput(" - Using Igor Pro for testing and validation of that work; developing in Qt Creator and Visual Studio\n\n");
+
+    appendHTML("<strong>Instructor → Lead Instructor → Assistant Center Director — Mathnasium</strong>, Thousand Oaks, CA — <em>Jul 2023 – May 2026; Aug 2026 – Present</em>");
+    appendOutput(" - Promoted twice over three years; as Assistant Center Director, lead daily operations, staff coordination, and student progress tracking\n");
+    appendOutput(" - Design individualized learning plans and teach students in grades 2-12, from arithmetic through calculus\n");
+    appendOutput(" - Paused May-Aug 2026 for the WSU REU; resumed Aug 2026\n\n");
+
+    appendHTML("<strong>Physics Department Assistant & Math Center Tutor — California Lutheran University</strong>, Thousand Oaks, CA — <em>Sep 2024 – May 2026; Sep 2026 – Present</em>");
+    appendOutput(" - Renewed for the 2026-27 academic year\n");
+    appendOutput(" - Prepare and maintain undergraduate physics lab setups\n");
+    appendOutput(" - Provide one-on-one and group tutoring in mathematics from algebra through calculus and statistics\n\n");
+
+    appendHTML(" - For research roles (CERN/CMS, WSU REU), type 'research'. For my full CV, type 'resume' or click here --> <strong><a href='images/Bobokhojaev_Master_CV_1.pdf' target='_blank'>RESUME</a></strong>");
 }
 
 function handleResearch() {
     appendOutput("\nResearch:\n");
 
-    appendHTML("<strong>Organic Photovoltaics — Washington State University (REU)</strong> — <em>May 2026 – Present</em>");
-    appendOutput(" - Investigating charge generation in ternary organic photovoltaic (OPV) solar cells via temperature-dependent time-delayed collection field (TDCF) measurements, targeting charge-generation activation energies at temperatures down to ~80 K. Performing low-temperature current–voltage characterization (~173 K), applying an Arrhenius/Boltzmann framework to extract activation energies, and building analysis/visualization workflows for multi-temperature device data. (PI: Prof. Brian Collins)\n\n");
+    appendHTML("<strong>Organic Photovoltaics — Washington State University (REU)</strong> — <em>May 2026 – Aug 2026</em>");
+    appendOutput(" - Investigated charge generation in PM6:Y6 organic photovoltaic (OPV) bulk-heterojunction solar cells via temperature-dependent time-delayed collection field (TDCF) measurements and JV characterization across a 148-228 K range. Extracted charge-generation activation energies via a Boltzmann/Arrhenius framework: JV gave 35.9 meV (Jsc) / 22.4 meV (FF); TDCF gave 10.9-39.9 meV depending on bias/batch, concluding an intrinsic barrier of ~11-20 meV, close to room-temperature thermal energy (kT ≈ 25.7 meV). Co-authored and presented the poster \"Quantum Energy Barriers to Charge Generation in Organic Photovoltaics\" with graduate mentors Acacia Patterson and Sushil Adhikari. (PI: Prof. Brian Collins; NSF WAVES in Physics REU, grant #2349426)\n\n");
 
     appendHTML("<strong>Supersymmetry Search — CMS / CERN / Fermilab (via CLU)</strong> — <em>May 2024 – Dec 2025</em>");
     appendOutput(" - Conducted research on supersymmetric top quark partner (stop) searches using CMS Run 2 data, specializing in dilepton final states (ee, μμ, eμ). Migrated legacy FWLite/MiniAOD workflows to NanoAOD + Coffea + Dask, implemented full event-selection pipelines, and performed systematic studies including JEC/MET corrections and b-tagging scale factors. Developed BDT-based classifiers with ROOT/PyROOT to enhance SUSY signal discrimination and contributed to a displaced-stop study using CMSSW. Presented at the CLU Undergraduate Research Symposium 2024/2025 and SCCUR 2025.\n\n");
@@ -550,10 +561,10 @@ function handleCourses() {
         appendHTML(" - Competition Problem Solving (CSC435) - <em>completed</em>\n\n");
         appendHTML(" - Data Communications & Networks (CSC350) - <em>completed</em>");
         appendHTML(" - Database Management Systems (CSC410) - <em>completed</em>\n\n");
-        appendHTML(" - Algorithms (CSC310) - <em>planned</em>");
+        appendHTML(" - Algorithms (CSC310) - <em>in progress</em>");
         appendHTML(" - Computer Organization & Architecture (CSC321) - <em>planned</em>\n\n");
-        appendHTML(" - Software Engineering (CSC335) - <em>planned</em>");
-        appendHTML(" - Operating Systems (CSC340) - <em>planned</em>\n\n");
+        appendHTML(" - Software Engineering (CSC335) - <em>in progress</em>");
+        appendHTML(" - Operating Systems (CSC340) - <em>in progress</em>\n\n");
         appendHTML(" - Capstone (CSC499) - <em>planned</em>\n\n");
     
     appendHTML("<strong>Physics & Engineering</strong>\n\n");
@@ -567,7 +578,7 @@ function handleCourses() {
         appendHTML(" - Advanced Experimental Physics (PHYS340) - <em>completed</em>");
         appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>completed</em>\n\n");
         appendHTML(" - Particle Physics Independent Study (PHYS-ST) - <em>completed</em>\n\n");
-        appendHTML(" - Capstone Research Project (PHYS494) - <em>planned</em>");
+        appendHTML(" - Capstone Research Project (PHYS494) - <em>in progress</em>");
         appendHTML(" - Capstone Senior Thesis (PHYS475) - <em>planned</em>\n\n");
 
     appendHTML("<strong>Math & Data Science</strong>\n");
@@ -590,7 +601,7 @@ function handleLanguages() {
 
 function handleResume() {
     appendOutput("\nResume / CV:");
-    appendHTML(`  • <a href="images/Bobokhojaev_Master_CV_1.pdf" target="_blank">View / download my CV (PDF)</a>`);
+    appendHTML(`  • <a href="images/Bobokhojaev_Master_CV_1.pdf" target="_blank"><strong><em>View / download my CV (PDF)</em></strong></a>`);
     appendOutput("");
 }
 
@@ -609,7 +620,8 @@ function handleClear() {
 }
 
 function handleVersion() {
-    appendHTML("<strong>Current == Terminal Portfolio v1.4 — last updated 07.15.2026</strong>");
+    appendHTML("<strong>Current == Terminal Portfolio v1.5 — last updated 09.16.2026</strong>");
+    appendOutput("Terminal Portfolio v1.4 — last updated 07.15.2026");
     appendOutput("Terminal Portfolio v1.3 — last updated 06.15.2026");
     appendOutput("Terminal Portfolio v1.2 — last updated 11.23.2025");
     appendOutput("Terminal Portfolio v1.1 — last updated 11.23.2025");
