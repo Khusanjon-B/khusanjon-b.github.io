@@ -69,7 +69,7 @@ const skillsProf = [
     "Python (PyTorch, NumPy)",
     "SQL",
     "MATLAB",
-    "Arduino/C",
+    "Arduino (C++)",
     "ESP32 development",
     "HTML/CSS/JavaScript",
     "SolidWorks/Onshape",
@@ -83,7 +83,9 @@ const skillsProf = [
     "Model deployment (GUI + PyTorch)",
     "Stepper/servo motor control",
     "Scientific data analysis & curve fitting",
-    "Igor Pro (power-user analysis/scripting + C++ integration development)"
+    "Igor Pro (power-user analysis/scripting + C++ integration development)",
+    "C++/Python integration (exposing C++ data objects to Python, embedded interpreter)",
+    "Numerical integration (RK4, Euler-Cromer)"
 ];
 
 const skillsInter = [
@@ -91,6 +93,10 @@ const skillsInter = [
     "PlatformIO",
     "Raylib",
     "CMake/MinGW toolchains",
+    "Qt 6 (Core, Network, Sql)",
+    "TypeScript (VS Code extension development)",
+    "Coffea + Dask (columnar HEP analysis)",
+    "SQLite",
     "ROOT & NanoAOD analysis",
     "Inverse kinematics",
     "Circuit design & soldering",
@@ -104,7 +110,7 @@ const skillsInter = [
 
 const skillsFam = [
     "WiFi networking on ESP32",
-    "CMSSW/Coffea",
+    "CMSSW",
     "DynamoDB (NoSQL)",
     "Networking labs (Cisco Packet Tracer)",
     "Web-app security (DVWA / SQL injection)",
@@ -338,13 +344,17 @@ Name:            Khusanjon Bobokhojaev
 
 School:          California Lutheran University
 
-Year:            Senior (Class of 2027)
+Year:            Senior (Class of 2027) - graduating May 2027
 
 Field:           Double Major in Computer Science & Physics (Math Minor)
 
-Who?:            Uzbek Muslim developer, researcher, and engineer with a passion for building things that blend hardware, code, and curiosity. Currently a Software Development Intern at WaveMetrics, building the C++ implementation of Python support inside Igor Pro 10, on top of two years of physics research spanning CERN/CMS particle physics and organic photovoltaics device physics at Washington State University.
+Who?:            Uzbek Muslim developer, researcher, and engineer. Most of my work is the same problem wearing different clothes: there's a real signal buried in noisy data, and someone has to build the thing that pulls it out. Physics gives me the questions, computing gives me the tools to answer them.
 
-Interests:       ML and scientific computing applied to real physics/engineering problems, hands-on embedded systems and hardware (schematic to firmware to enclosure), robotics and autonomous systems, and building things that work end-to-end and can actually be demonstrated.
+Now:             Software Development Intern at WaveMetrics (Aug - Dec 2026), developing Python integration for Igor Pro 10 in C++. Incoming Software Engineering Intern, AI Infrastructure (Modular Diagnostics) at NVIDIA in Santa Clara, Jan - Apr 2027. Before that: two years of physics research spanning CERN/CMS particle physics and organic photovoltaics device physics at Washington State University.
+
+Looking for:     Full-time software engineering roles starting Summer/Fall 2027 - especially robotics and embedded systems, and roles where scientific computing meets real instruments.
+
+Interests:       ML and scientific computing applied to real physics/engineering problems, AI tooling and developer infrastructure, hands-on embedded systems and hardware (schematic to firmware to enclosure), robotics and autonomous systems, and building things that work end-to-end and can actually be demonstrated.
 `;
 
     appendHTML(`
@@ -359,7 +369,11 @@ Interests:       ML and scientific computing applied to real physics/engineering
 function handleProjects() {
     appendHTML("<strong>Projects:</strong>\n\n");
 
-    appendHTML(" - <strong>N-DOF Robotic Arm (Physics & CS Capstone, in progress)</strong> - <em>Fall 2026-Spring 2027</em>\n\n");
+    appendHTML(" - <strong>3-DOF Robotic Arm (Physics & CS Capstone, in progress)</strong> - <em>Fall 2026-Spring 2027</em>\n\n");
+
+    appendHTML(" - <strong>Multiplayer Hearts Card Game - Server & Networking (CSC335 team project, in progress)</strong> - <em>Fall 2026</em>\n\n");
+
+    appendHTML(" - <strong>Graph Search Visualizer - DFS / BFS / A*</strong> - <em>Nov 2026</em>\n\n");
 
     appendHTML(" - <strong>Physics Simulation Collection (Raspberry Pi 5 + raylib)</strong> - <em>Jul 2026</em>\n\n");
 
@@ -404,11 +418,23 @@ function handleProjects() {
 function handleProjectsVerbose() {
     appendHTML("<strong>Projects:</strong>\n\n");
 
-    appendHTML(" - <strong>N-DOF Robotic Arm (Physics & CS Capstone, in progress)</strong> - <em>Fall 2026-Spring 2027</em>\n\n");
+    appendHTML(" - <strong>3-DOF Robotic Arm (Physics & CS Capstone, in progress)</strong> - <em>Fall 2026-Spring 2027</em>\n\n");
 
-        appendHTML("<li style='margin-left: 5%;'>Deriving the arm's mechanism and motion planning via three independent methods: Lagrangian mechanics, linear-algebra/Jacobian-based kinematics, and machine learning</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Deriving the 3-DOF arm's mechanism and motion planning via three independent methods: Lagrangian mechanics, linear-algebra/Jacobian-based kinematics, and machine learning</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Designing and building the physical robot using NEMA 17 stepper motors, encoders, and PID control loops</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Physics capstone (PHYS494 Fall 2026 / PHYS475 Spring 2027), likely reused for CS capstone (CSC499 Spring 2027)</li>\n");
+
+    appendHTML(" - <strong>Multiplayer Hearts Card Game - Server & Networking (CSC335 team project, in progress)</strong> - <em>Fall 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>Three-person Software Engineering team project run as a waterfall process, tracked through GitHub milestones and issues - use cases, class/sequence/state diagrams, and test cases before implementation</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>I own the server side: a C++17 / Qt 6 TCP server with a JSON message protocol, an SQLite account database, salted SHA-256 password hashing, and logging</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Also own the ESP32 networking piece - the ESP32 runs as the game's local Wi-Fi access point (the Java/JavaFX client is built by teammates); code: <a href='https://github.com/Khusanjon-B/CSC335-HeartsGame' target='_blank'>github.com/Khusanjon-B/CSC335-HeartsGame</a></li>\n");
+
+    appendHTML(" - <strong>Graph Search Visualizer - DFS / BFS / A*</strong> - <em>Nov 2026</em>\n\n");
+
+        appendHTML("<li style='margin-left: 5%;'>C++17 grid-pathfinding demo that runs DFS, BFS, and A* on the same user-defined grid and overlays all three paths in a Raylib window</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Eight-directional movement with weighted costs (10 orthogonal / 14 diagonal) and a Manhattan-distance heuristic for A*; a legend reports each algorithm's accumulated cost, showing why BFS's fewest-moves path isn't always the cheapest</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>Raylib pulled in automatically with CMake FetchContent; code: <a href='https://github.com/Khusanjon-B/Graph-Search-with-Raylib-DFS-BFS-A-Star-' target='_blank'>github.com/Khusanjon-B/Graph-Search-with-Raylib-DFS-BFS-A-Star-</a></li>\n");
 
     appendHTML(" - <strong>Physics Simulation Collection (Raspberry Pi 5 + raylib)</strong> - <em>Jul 2026</em>\n\n");
 
@@ -421,7 +447,7 @@ function handleProjectsVerbose() {
 
         appendHTML("<li style='margin-left: 5%;'>Built a CLI tool that matches a Quran recitation recording to the well-known reciter (Qari) it sounds closest to, using a pretrained speaker-embedding model (SpeechBrain ECAPA-TDNN) rather than training a classifier from scratch</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Built a reference database of well-known reciters' clips embedded individually (not averaged per reciter) and ranked query clips by cosine similarity, so a query reciting one surah can still be matched against reference clips of a different surah</li>\n");
-        appendHTML("<li style='margin-left: 5%;'>With no formal ground truth available, validated the system against real recordings of people imitating famous reciters, reaching 20% top-1 / 44.2% top-3 accuracy on adult-to-adult pairs vs. a 3.6% / 10.7% random baseline</li>\n");
+        appendHTML("<li style='margin-left: 5%;'>With no formal ground truth available, validated the system against real recordings of people imitating famous reciters, reaching 16.3% top-1 / 33.0% top-3 accuracy across 16 pairs and a 28-reciter database (20% / 44.2% on adult-to-adult pairs) vs. a 3.6% / 10.7% random baseline</li>\n");
         appendHTML("<li style='margin-left: 5%;'>Built an evaluation/tuning harness to sweep aggregation strategies (mean/median, top-k) against the validation set; code: <a href='https://github.com/Khusanjon-B/quran-reciter-match' target='_blank'>github.com/Khusanjon-B/quran-reciter-match</a></li>\n");
 
     appendHTML(" - <strong>Real-Time Chat Application</strong> - <em>April 2026</em>\n\n");
@@ -511,14 +537,15 @@ function handleProjectsVerbose() {
 
 function handleActivities() {
     appendOutput("\nWhat I'm up to right now:\n\n");
-    appendOutput(" - Senior year at CLU - deep in Algorithms, Software Engineering, and Operating Systems this semester\n\n");
-    appendOutput(" - Software Development Intern at WaveMetrics, building Python support into Igor Pro 10 in C++\n\n");
-    appendOutput(" - Building an N-DOF robotic arm as my Physics & CS capstone - deriving the mechanism via Lagrangian mechanics, Jacobian kinematics, and machine learning\n\n");
-    appendOutput(" - Just wrapped an NSF REU at Washington State University this summer, researching organic photovoltaics\n\n");
+    appendOutput(" - Senior year at CLU - finishing Algorithms, Software Engineering, and Operating Systems this semester; graduating May 2027\n\n");
+    appendOutput(" - Wrapping up my Software Development Internship at WaveMetrics (through Dec 2026), developing Python integration for Igor Pro 10 in C++\n\n");
+    appendOutput(" - Starting as a Software Engineering Intern, AI Infrastructure (Modular Diagnostics) at NVIDIA in Santa Clara, Jan - Apr 2027 - taking my final semester's classes remotely alongside it\n\n");
+    appendOutput(" - Looking for full-time software engineering roles starting Summer/Fall 2027 (LA area or the SF Bay Area)\n\n");
+    appendOutput(" - Building a 3-DOF robotic arm as my Physics & CS capstone - deriving the mechanism via Lagrangian mechanics, Jacobian kinematics, and machine learning\n\n");
+    appendOutput(" - Owning the C++/Qt server and ESP32 networking for a multiplayer Hearts game in my Software Engineering course\n\n");
     appendOutput(" - Physics Club President and CS Club Co-President for 2026-27\n\n");
-    appendOutput(" - Recently presented at Southern California Conferences for Undergraduate Research (SCCUR)\n\n");
-    appendOutput(" - Participating in SoCal ICPC - working on getting better through practice on Codeforces\n\n");
-    appendHTML(`   - My solutions can be found on my Github: <a href="https://github.com/Khusanjon-B">github.com/Khusanjon-B</a>\n\n`);
+    appendOutput(" - Participating in SoCal ICPC - 46 documented solutions so far across Codeforces, CSES, USACO, and HackerRank\n\n");
+    appendHTML(`   - My solutions can be found on my Github: <a href="https://github.com/Khusanjon-B/Competitive-Programming" target="_blank">github.com/Khusanjon-B/Competitive-Programming</a>\n\n`);
     appendOutput(" - Society of Physics Students (SPS) Member · Sigma Pi Sigma Honors Society\n\n");
     appendHTML(" - For my formal work history, type 'experience'. For research details, type 'research'.");
 }
@@ -526,19 +553,23 @@ function handleActivities() {
 function handleExperience() {
     appendOutput("\nWork Experience:\n");
 
-    appendHTML("<strong>Software Development Intern — WaveMetrics</strong> (working under Sutter Instruments) — <em>Aug 2026 – Present</em>");
-    appendOutput(" - Implementing Python support inside Igor Pro 10, WaveMetrics' scientific data analysis platform, in C++ - building the interpreter/integration layer itself, not writing Python scripts\n");
-    appendOutput(" - Using Igor Pro for testing and validation of that work; developing in Qt Creator and Visual Studio\n\n");
+    appendHTML("<strong>Software Engineering Intern, AI Infrastructure — NVIDIA</strong> (Modular Diagnostics / MODS), Santa Clara, CA — <em>Jan 2027 – Apr 2027 (incoming)</em>");
+    appendOutput(" - Incoming: AI-powered tools and infrastructure for the validation and diagnostics of next-generation GPU/HPC products\n\n");
 
-    appendHTML("<strong>Instructor → Lead Instructor → Assistant Center Director — Mathnasium</strong>, Thousand Oaks, CA — <em>Jul 2023 – May 2026; Aug 2026 – Present</em>");
-    appendOutput(" - Promoted twice over three years; as Assistant Center Director, lead daily operations, staff coordination, and student progress tracking\n");
-    appendOutput(" - Design individualized learning plans and teach students in grades 2-12, from arithmetic through calculus\n");
+    appendHTML("<strong>Software Development Intern — WaveMetrics</strong> (working under Sutter Instruments) — <em>Aug 2026 – Dec 2026</em>");
+    appendOutput(" - Developed Python integration for Igor Pro 10, a scientific data analysis and graphing application, in C++, exposing Igor's core data objects (waves, variables, strings, data folders) to Python\n");
+    appendOutput(" - Improved the embedded Python console, including interpreter state management, autocompletion, and stability fixes\n");
+    appendOutput(" - Built developer tooling for writing, compiling, and debugging Igor code in VS Code (TypeScript)\n");
+    appendOutput(" - Fixed bugs and updated documentation and demo experiments across the C++ core and the Python API; developed in Qt Creator and Visual Studio\n\n");
+
+    appendHTML("<strong>Instructor → Lead Instructor → Assistant Center Director — Mathnasium</strong>, Thousand Oaks, CA — <em>Jul 2023 – May 2026; Aug 2026 – Dec 2026</em>");
+    appendOutput(" - Promoted twice over three years; as Assistant Center Director, led daily operations, staff coordination, and student progress tracking\n");
+    appendOutput(" - Designed individualized learning plans and taught students in grades 2-12, from arithmetic through calculus\n");
     appendOutput(" - Paused May-Aug 2026 for the WSU REU; resumed Aug 2026\n\n");
 
-    appendHTML("<strong>Physics Department Assistant & Math Center Tutor — California Lutheran University</strong>, Thousand Oaks, CA — <em>Sep 2024 – May 2026; Sep 2026 – Present</em>");
-    appendOutput(" - Renewed for the 2026-27 academic year\n");
-    appendOutput(" - Prepare and maintain undergraduate physics lab setups\n");
-    appendOutput(" - Provide one-on-one and group tutoring in mathematics from algebra through calculus and statistics\n\n");
+    appendHTML("<strong>Physics Department Assistant & Math Center Tutor — California Lutheran University</strong>, Thousand Oaks, CA — <em>Sep 2024 – May 2026</em>");
+    appendOutput(" - Prepared and maintained undergraduate physics lab setups\n");
+    appendOutput(" - Provided one-on-one and group tutoring in mathematics from algebra through calculus and statistics\n\n");
 
     appendHTML(" - For research roles (CERN/CMS, WSU REU), type 'research'. For my full CV, type 'resume' or click here --> <strong><a href='images/Bobokhojaev_Master_CV_1.pdf' target='_blank'>RESUME</a></strong>");
 }
@@ -547,7 +578,7 @@ function handleResearch() {
     appendOutput("\nResearch:\n");
 
     appendHTML("<strong>Organic Photovoltaics — Washington State University (REU)</strong> — <em>May 2026 – Aug 2026</em>");
-    appendOutput(" - Investigated charge generation in PM6:Y6 organic photovoltaic (OPV) bulk-heterojunction solar cells via temperature-dependent time-delayed collection field (TDCF) measurements and JV characterization across a 148-228 K range. Extracted charge-generation activation energies via a Boltzmann/Arrhenius framework: JV gave 35.9 meV (Jsc) / 22.4 meV (FF); TDCF gave 10.9-39.9 meV depending on bias/batch, concluding an intrinsic barrier of ~11-20 meV, close to room-temperature thermal energy (kT ≈ 25.7 meV). Co-authored and presented the poster \"Quantum Energy Barriers to Charge Generation in Organic Photovoltaics\" with graduate mentors Acacia Patterson and Sushil Adhikari. (PI: Prof. Brian Collins; NSF WAVES in Physics REU, grant #2349426)\n\n");
+    appendOutput(" - Investigated charge generation in PM6:Y6 organic photovoltaic (OPV) bulk-heterojunction solar cells via temperature-dependent time-delayed collection field (TDCF) measurements and JV characterization across a 148-228 K range. Extracted charge-generation activation energies via a Boltzmann/Arrhenius framework: JV gave 35.9 meV (Jsc) / 22.4 meV (FF); TDCF gave 10.9-39.9 meV depending on bias/batch, concluding an intrinsic barrier of ~11-20 meV, close to room-temperature thermal energy (kT ≈ 25.7 meV). Did the curve fitting and Arrhenius analysis in Igor Pro, with Python workflows for the multi-temperature data. Co-authored and presented the poster \"Quantum Energy Barriers to Charge Generation in Organic Photovoltaics\" with graduate mentors Acacia Patterson and Sushil Adhikari. (PI: Prof. Brian Collins; NSF WAVES in Physics REU, grant #2349426)\n\n");
 
     appendHTML("<strong>Supersymmetry Search — CMS / CERN / Fermilab (via CLU)</strong> — <em>May 2024 – Dec 2025</em>");
     appendOutput(" - Conducted research on supersymmetric top quark partner (stop) searches using CMS Run 2 data, specializing in dilepton final states (ee, μμ, eμ). Migrated legacy FWLite/MiniAOD workflows to NanoAOD + Coffea + Dask, implemented full event-selection pipelines, and performed systematic studies including JEC/MET corrections and b-tagging scale factors. Developed BDT-based classifiers with ROOT/PyROOT to enhance SUSY signal discrimination and contributed to a displaced-stop study using CMSSW. Presented at the CLU Undergraduate Research Symposium 2024/2025 and SCCUR 2025.\n\n");
@@ -562,10 +593,10 @@ function handleCourses() {
         appendHTML(" - Data Communications & Networks (CSC350) - <em>completed</em>");
         appendHTML(" - Database Management Systems (CSC410) - <em>completed</em>\n\n");
         appendHTML(" - Algorithms (CSC310) - <em>in progress</em>");
-        appendHTML(" - Computer Organization & Architecture (CSC321) - <em>planned</em>\n\n");
+        appendHTML(" - Computer Organization & Architecture (CSC321) - <em>planned, Spring 2027 (remote)</em>\n\n");
         appendHTML(" - Software Engineering (CSC335) - <em>in progress</em>");
         appendHTML(" - Operating Systems (CSC340) - <em>in progress</em>\n\n");
-        appendHTML(" - Capstone (CSC499) - <em>planned</em>\n\n");
+        appendHTML(" - Capstone (CSC499) - <em>planned, Spring 2027 (remote)</em>\n\n");
     
     appendHTML("<strong>Physics & Engineering</strong>\n\n");
         appendHTML(" - Statistical Physics & Thermodynamics (PHYS415) - <em>completed</em>");
@@ -579,15 +610,14 @@ function handleCourses() {
         appendHTML(" - Physical Modeling with MATLAB (PHYS310) - <em>completed</em>\n\n");
         appendHTML(" - Particle Physics Independent Study (PHYS-ST) - <em>completed</em>\n\n");
         appendHTML(" - Capstone Research Project (PHYS494) - <em>in progress</em>");
-        appendHTML(" - Capstone Senior Thesis (PHYS475) - <em>planned</em>\n\n");
+        appendHTML(" - Capstone Senior Thesis (PHYS475) - <em>planned, Spring 2027 (remote)</em>\n\n");
 
     appendHTML("<strong>Math & Data Science</strong>\n");
         appendHTML(" - Discrete Mathematics (MATH241) - <em>completed</em>");
         appendHTML(" - Calculus I, II, III (MATH251, MATH252, M25C) - <em>completed</em>");
         appendHTML(" - Differential Equations (MATH265) - <em>completed</em>");
         appendHTML(" - Machine Learning (DATA440) - <em>completed</em>");
-        appendHTML(" - Graph Theory & Combinatorics (MATH341) - <em>planned</em>");
-        appendHTML(" - Linear Algebra (MATH343) - <em>planned</em>");
+        appendHTML(" - Graph Theory & Combinatorics (MATH341) - <em>planned, Spring 2027 (remote)</em>");
 }
 
 function handleLanguages() {
@@ -620,7 +650,8 @@ function handleClear() {
 }
 
 function handleVersion() {
-    appendHTML("<strong>Current == Terminal Portfolio v1.5 — last updated 09.16.2026</strong>");
+    appendHTML("<strong>Current == Terminal Portfolio v1.6 — last updated 11.23.2026</strong>");
+    appendOutput("Terminal Portfolio v1.5 — last updated 09.16.2026");
     appendOutput("Terminal Portfolio v1.4 — last updated 07.15.2026");
     appendOutput("Terminal Portfolio v1.3 — last updated 06.15.2026");
     appendOutput("Terminal Portfolio v1.2 — last updated 11.23.2025");
